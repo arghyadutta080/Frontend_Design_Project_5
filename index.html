@@ -49,7 +49,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="text-center">
-                        <img class="mb-4" src="" alt="" width="72" height="57">
+                        <img class="mb-4" src="TO-DO.png" alt="" width="72" height="57">
                         <h1 class="h3 mb-3 fw-normal">Welcome to MyTODOlist</h1>
                         <h1 class="h3 mb-3 fw-normal">Please Sign Up</h1>
 
@@ -95,7 +95,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="text-center">
-                        <img class="mb-4" src="" alt="" width="72" height="57">
+                        <img class="mb-4" src="TO-DO.png" alt="" width="72" height="57">
                         <h1 class="h3 mb-3 fw-normal">Log In to your account</h1>
 
 
@@ -165,7 +165,7 @@
                 </thead>
                 <tbody class="text-white" id="table">
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"></th>
                         <td></td>
                         <td></td>
                         <td><button class="btn btn-warning btn-sm my-2" id="del" onclick="deleted(index)">Delete</button></td>
@@ -191,6 +191,11 @@
       </footer>
 
     <script>
+
+        if (localStorage.getItem('itemsJson') == '[]') {
+            alert("Your list is empty. Add some tasks")
+        }
+
         function getandupdate() {
             tit = document.getElementById('title');
             desc = document.getElementById('description');
