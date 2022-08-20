@@ -77,7 +77,7 @@
                                 <input type="checkbox" value="remember-me"> Remember me
                             </label>
                         </div>
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="signin()">Sign Up</button>
                         <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
                     </form>
                 </div>
@@ -116,7 +116,7 @@
                                 <input type="checkbox" value="remember-me"> Remember me
                             </label>
                         </div>
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="login()">Log in</button>
                         <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
                     </form>
                 </div>
@@ -133,7 +133,8 @@
             </div>
             <div>
                 <h1 class="mt-4 mb-3 text-center text-warning"><b>Welcome to MyTODOlist</b></h1>
-                <h5 class="mt-2 mb-4 text-center text-light"><b>Give an appropriate title to your task, describe it and when you are done with it just delete it</b></h5>
+                <h5 class="mt-2 mb-4 text-center text-light"><b>Give an appropriate title to your task, describe it and
+                        when you are done with it just delete it</b></h5>
 
                 <div class="form-group">
                     <label for="title" class="tableHead mt-2"><b>Task Title</b></label>
@@ -146,7 +147,7 @@
                 </div>
 
                 <button type="submit" id="add" class="btn btn-primary my-2">Add to List</button>
-                <button  id="clear" class="btn btn-danger" onclick="clearlist()">Clear list</button>
+                <button id="clear" class="btn btn-danger" onclick="clearlist()">Clear list</button>
             </div>
         </div>
 
@@ -168,7 +169,8 @@
                         <th scope="row"></th>
                         <td></td>
                         <td></td>
-                        <td><button class="btn btn-warning btn-sm my-2" id="del" onclick="deleted(index)">Delete</button></td>
+                        <td><button class="btn btn-warning btn-sm my-2" id="del"
+                                onclick="deleted(index)">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -177,24 +179,31 @@
 
     <footer class="footer mt-auto py-3">
         <div class="container">
-          <span class="text-muted">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-            <p class="text-center text-muted">© 2022 MyTODOlist, Inc</p>
-          </span>
+            <span class="text-muted">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <p class="text-center text-muted">© 2022 MyTODOlist, Inc</p>
+            </span>
         </div>
-      </footer>
+    </footer>
 
     <script>
-
-        if (localStorage.getItem('itemsJson') == '[]') {
-            alert("Your list is empty. Add some tasks")
+        
+        function notify() {
+            if (localStorage.getItem('itemsJson') == '[]') {
+                a = alert("Your list is empty. Add some tasks")
+            }
         }
+
+        setTimeout(notify,3000);
+        // clearTimeout(a);
+        
+        setInterval(notify,60000);
 
         function getandupdate() {
             tit = document.getElementById('title');
@@ -251,15 +260,22 @@
 
             localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
             update();
-        } 
-        
-        function clearlist(){
-                if (confirm("Do you really want to delete this current list ?")){
+        }
+
+        function clearlist() {
+            if (confirm("Do you really want to delete this current list ?")) {
                 console.log('Clearing the storage')
                 localStorage.clear();
                 update()
-                }
             }
+        }
+
+        function signin() {
+            alert("You have successfully Signed Up to MyTODOlist.")
+        }
+        function login() {
+            alert("You have successfully Logged In to your account.")
+        }
     </script>
 
 
