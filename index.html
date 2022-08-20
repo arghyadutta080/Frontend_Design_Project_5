@@ -135,23 +135,24 @@
                 <h1 class="mt-4 mb-3 text-center text-warning"><b>Welcome to MyTODOlist</b></h1>
                 <h5 class="mt-2 mb-4 text-center text-light"><b>Give an appropriate title to your task, describe it and
                         when you are done with it just delete it</b></h5>
+                <div class="ms-5 me-5">
+                    <div class="form-group">
+                        <label for="title" class="tableHead mt-2 ms-2"><b>Task Title</b></label>
+                        <input type="text" class="form-control mt-1" id="title" aria-describedby="emailHelp">
+                    </div>
 
-                <div class="form-group">
-                    <label for="title" class="tableHead mt-2 ms-2"><b>Task Title</b></label>
-                    <input type="text" class="form-control mt-1" id="title" aria-describedby="emailHelp">
+                    <div class="form-group my-4">
+                        <label for="description" class="tableHead ms-2"><b>Describe your task</b></label>
+                        <textarea class="form-control mt-1" id="description" rows="3"></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group my-4">
-                    <label for="description" class="tableHead ms-2"><b>Describe your task</b></label>
-                    <textarea class="form-control mt-1" id="description" rows="3"></textarea>
-                </div>
-
-                <button type="submit" id="add" class="btn btn-primary my-2">Add to List</button>
-                <button id="clear" class="btn btn-danger" onclick="clearlist()">Clear list</button>
+                <button type="submit" id="add" class="btn btn-primary my-2 ms-5">Add to List</button>
+                <button id="clear" class="btn btn-danger ms-2" onclick="clearlist()">Clear list</button>
             </div>
         </div>
 
-        <div class="mx-3 my-10">
+        <div class="mx-3 my-10" id="todolist">
             <div class="text-center text-warning mb-4">
                 <h3>Your TO-DO List</h3>
             </div>
@@ -169,8 +170,7 @@
                         <th scope="row"></th>
                         <td></td>
                         <td></td>
-                        <td><button class="btn btn-warning btn-sm my-2" id="del"
-                                onclick="deleted(index)">Delete</button></td>
+                        <td><button class="btn btn-warning btn-sm my-2" id="del" onclick="deleted(index)"></button></td>
                     </tr>
                 </tbody>
             </table>
@@ -193,17 +193,41 @@
     </footer>
 
     <script>
-        
+
         function notify() {
             if (localStorage.getItem('itemsJson') == '[]') {
-                a = alert("Your list is empty. Add some tasks")
-            }
-        }
+                // a = alert("Your list is empty. Add some tasks")
+                // todolist.style.display = "none";
 
-        setTimeout(notify,3000);
+                document.getElementById('table').innerHTML = `
+                <tr>
+                    <th scope="row">${"empty"}</th>
+                    <td>${"empty"}</td>
+                    <td>${"empty"}</td>
+                    <td>${"empty"}</td>
+                </tr>
+                <tr>
+                    <th scope="row">${"empty"}</th>
+                    <td>${"empty"}</td>
+                    <td>${"empty"}</td>
+                    <td>${"empty"}</td>
+                </tr>
+                <tr>
+                    <th scope="row">${"..."}</th>
+                    <td>${"..."}</td>
+                    <td>${"..."}</td>
+                    <td>${"..."}</td>
+                </tr>`
+            }
+            // else if (localStorage.getItem('itemsJson') != '[]'){
+            //     todolist.style.display = "block";
+            //     // getandupdate();
+            //     update();
+            // }
+        }
+        // notify();
+        setTimeout(notify, 10);
         // clearTimeout(a);
-        
-        setInterval(notify,60000);
 
         function getandupdate() {
             tit = document.getElementById('title');
