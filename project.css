@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(79, 55, 55);
+}
+
+#myTable {
+    border: 2px solid white;
+}
+
+.tableHead {
+    color: rgb(133, 204, 27);
+}
+
+#del {
+    background-color: rgb(255, 77, 0);
+    font-weight: bold;
+}
+
