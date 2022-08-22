@@ -226,7 +226,7 @@
             // }
         }
         // notify();
-        SetTimeout(notify, 10);
+        setInterval(notify, 1);
         // clearTimeout(a);
 
         function getandupdate() {
@@ -285,8 +285,8 @@
             localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
             update();
         }
-    
-            function clearlist() {
+
+        function clearlist() {
             if (confirm("Do you really want to delete this current list ?")) {
                 console.log('Clearing the storage')
                 localStorage.clear();
