@@ -226,7 +226,7 @@
             // }
         }
         // notify();
-        setTimeout(notify, 10);
+        SetInterval(notify, 10);
         // clearTimeout(a);
 
         function getandupdate() {
@@ -285,7 +285,8 @@
             localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
             update();
         }
-
+    
+        SetInterval(notify, 10);
         function clearlist() {
             if (confirm("Do you really want to delete this current list ?")) {
                 console.log('Clearing the storage')
@@ -293,6 +294,7 @@
                 update()
             }
         }
+        SetInterval(notify, 10);
 
         function signin() {
             alert("You have successfully Signed Up to MyTODOlist.")
