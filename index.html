@@ -286,15 +286,13 @@
             update();
         }
     
-        SetInterval(notify, 10);
-        function clearlist() {
+            function clearlist() {
             if (confirm("Do you really want to delete this current list ?")) {
                 console.log('Clearing the storage')
                 localStorage.clear();
                 update()
             }
         }
-        SetInterval(notify, 10);
 
         function signin() {
             alert("You have successfully Signed Up to MyTODOlist.")
